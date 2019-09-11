@@ -1,13 +1,11 @@
 import React from 'react';
-
+import GuessForm from './guessForm';
 //need to add feedback and number + history of numbers
-export default function GuessForm(props) {
+export default function GuessArea(props) {
   return (
     <section className="guessArea">
-      <form className="guessForm">
-        <input placeholder='Enter Your Guess' type="number"></input>
-        <button type="submit">Guess</button>
-      </form>
+      <h2 id="feedback">{props.feedback}</h2>
+      <GuessForm onSubmit={props.onSubmit} />
     </section>
   );
 }
