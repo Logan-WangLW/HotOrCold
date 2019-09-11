@@ -3,12 +3,14 @@ export const getFeedback = (userGuess, answer) => {
   let feedback;
   if (guessToAnswer === 0) {
     feedback = 'YES! you got it!';
-  } else if (guessToAnswer <= 10) {
-    feedback = 'HOT';
-  } else if (guessToAnswer <= 20) {
-    feedback = 'warm';
+  } else if (guessToAnswer <= 5) {
+    feedback = 'HOT 🔥';
+  } else if (guessToAnswer <= 15) {
+    feedback = 'Warm';
+  } else if (guessToAnswer <= 30) {
+    feedback = 'Cold';
   } else {
-    feedback = 'cold';
+    feedback = 'You\'re Ice Cold... 🥶';
   }
   return feedback;
 }

@@ -5,6 +5,9 @@ export default function NavBar(props) {
     <nav>
       <ul className="clearfix">
         <li>
+          <button className="what" onClick={() => props.what()}> What?</button>
+        </li>
+        <li>
           <button className="new" onClick={() => props.resetGame()}> New Game</button>
         </li>
       </ul>

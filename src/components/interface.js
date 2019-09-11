@@ -17,7 +17,8 @@ export default class Game extends React.Component {
     super(props);
     this.state = {
       ...initialState,
-      RNGAnswer: createAnswer()
+      RNGAnswer: createAnswer(),
+      showWhat: false
     }
   }
   resetGame() {
@@ -46,6 +47,11 @@ export default class Game extends React.Component {
       userGuesses: [...this.state.userGuesses, guess]
     });
   }
+  what() {
+    this.setState({
+      showWhat: !this.state.showWhat
+    });
+  }
 
   render() {
     const { feedback, userGuesses } = this.state;
@@ -53,7 +59,7 @@ export default class Game extends React.Component {
 
     return (
       <div>
-        <Header resetButton={() => this.resetGame()} />
+        <Header resetButton={() => this.resetGame()} what={() => this.what()} showWhat={this.state.showWhat} />
         <GuessArea
           feedback={feedback}
           onSubmit={guess => this.guessFunction(guess)}
