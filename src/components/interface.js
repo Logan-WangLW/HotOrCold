@@ -20,8 +20,25 @@ export default class Game extends React.Component {
       RNGAnswer: createAnswer()
     }
   }
+  resetGame() {
+    this.setState({
+      ...initialState,
+      RNGAnswer: createAnswer()
+    })
+  }
   guessFunction(guess) {
-
+    if (this.state.userGuesses.includes(guess)) {
+      this.setState({ feedback: 'number is a dulpicate' });
+      return;
+    }
+    if (guess < 0 || guess > 101) {
+      this.setState({ feedback: 'number must be between 0 and 100' });
+      return;
+    }
+    if (isNaN(guess)) {
+      this.setState({ feedback: 'Please enter a number' });
+      return;
+    }
     const feedback = getFeedback(guess, this.state.RNGAnswer);
 
     this.setState({
@@ -36,7 +53,7 @@ export default class Game extends React.Component {
 
     return (
       <div>
-        <Header />
+        <Header resetButton={() => this.resetGame()} />
         <GuessArea
           feedback={feedback}
           onSubmit={guess => this.guessFunction(guess)}
