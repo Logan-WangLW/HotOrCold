@@ -1,5 +1,7 @@
 import React from 'react';
 import GuessForm from './guessForm';
+import './guessArea.css';
+
 //need to add feedback and number + history of numbers
 export default function GuessArea(props) {
   return (

@@ -1,11 +1,11 @@
 import React from 'react';
-
+import './navBar.css';
 export default function NavBar(props) {
   return (
     <nav>
-      <ul>
+      <ul className="clearfix">
         <li>
-          <button onClick={() => props.resetGame()}> New Game</button>
+          <button className="new" onClick={() => props.resetGame()}> New Game</button>
         </li>
       </ul>
     </nav>
